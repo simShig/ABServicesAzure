@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: service-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: abservices.westus.cloudapp.azure.com
+    http:
+      paths:
+      - path: /service-A
+        pathType: Prefix
+        backend:
+          service:
+            name: bitcoin-service
+            port:
+              number: 80
+      - path: /service-B
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-service
+            port:
+              number: 80
