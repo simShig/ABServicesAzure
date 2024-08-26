@@ -3,14 +3,14 @@ import requests
 import datetime
 import logging
 
-# Initialize Flask app
+
 app = Flask(__name__)
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Variables for storing Bitcoin price data
+
 prices = []
 last_fetch_time = None
 average_price = None
@@ -33,9 +33,9 @@ def fetch_bitcoin_price():
         # Calculate 10-minute average every 10 prices
         if len(prices) == 10:
             average_price = sum(prices) / 10
-            prices.clear()  # Reset the prices list
+            prices.clear()
 
-        # Log the current rate and average price
+
         logger.info(f"Current Bitcoin Price: {bitcoin_price} USD")
         logger.info(f"10-Minute Average Price: {average_price if average_price else 'Calculating...'} USD")
 
