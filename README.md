@@ -88,9 +88,3 @@ This repository contains the configuration and setup files for deploying a produ
    ```bash
    kubectl get services --namespace=ingress-nginx
 
-
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
